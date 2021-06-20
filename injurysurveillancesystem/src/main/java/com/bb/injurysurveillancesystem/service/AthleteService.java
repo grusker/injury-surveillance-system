@@ -8,7 +8,6 @@ import com.bb.injurysurveillancesystem.entity.PhysioEntity;
 import com.bb.injurysurveillancesystem.mapper.AthleteMapper;
 import com.bb.injurysurveillancesystem.mapper.PhysioMapper;
 import com.bb.injurysurveillancesystem.repository.AthleteRepository;
-import com.bb.injurysurveillancesystem.repository.PhysioRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
