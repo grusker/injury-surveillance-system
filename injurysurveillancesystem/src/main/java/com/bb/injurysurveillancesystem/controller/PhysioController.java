@@ -5,6 +5,8 @@ import com.bb.injurysurveillancesystem.dto.output.PhysioOutputDto;
 import com.bb.injurysurveillancesystem.service.PhysioService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
+import org.springframework.http.MediaTypeEditor;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
