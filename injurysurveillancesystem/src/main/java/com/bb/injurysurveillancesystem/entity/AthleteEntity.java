@@ -1,7 +1,7 @@
 package com.bb.injurysurveillancesystem.entity;
 
 import com.bb.injurysurveillancesystem.entity.enums.BodySide;
-import com.bb.injurysurveillancesystem.entity.enums.Sex;
+import com.bb.injurysurveillancesystem.entity.enums.Gender;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import javax.persistence.*;
@@ -20,7 +20,7 @@ public class AthleteEntity extends Person{
     @Column(columnDefinition = "NUMBER(10,3)")
     private float bmi;
     @Enumerated(EnumType.STRING)
-    private Sex sex;
+    private Gender gender;
     @Enumerated(EnumType.STRING)
     private BodySide dominantSide;
     @ManyToOne
@@ -62,12 +62,12 @@ public class AthleteEntity extends Person{
         }
     }
 
-    public Sex getSex() {
-        return sex;
+    public Gender getGender() {
+        return gender;
     }
 
-    public void setSex(Sex sex) {
-        this.sex = sex;
+    public void setGender(Gender gender) {
+        this.gender = gender;
     }
 
     public BodySide getDominantSide() {

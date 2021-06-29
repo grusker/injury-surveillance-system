@@ -3,14 +3,14 @@ package com.bb.injurysurveillancesystem.dto.output;
 import com.bb.injurysurveillancesystem.entity.Person;
 import com.bb.injurysurveillancesystem.entity.PhysioEntity;
 import com.bb.injurysurveillancesystem.entity.enums.BodySide;
-import com.bb.injurysurveillancesystem.entity.enums.Sex;
+import com.bb.injurysurveillancesystem.entity.enums.Gender;
 
 public class AthleteOutputDto extends Person {
     private Long id;
     private float height;
     private float weight;
     private float bmi;
-    private Sex sex;
+    private Gender gender;
     private BodySide dominantSide;
     private PhysioEntity physioterapist;
 
@@ -46,12 +46,12 @@ public class AthleteOutputDto extends Person {
         this.bmi = bmi;
     }
 
-    public Sex getSex() {
-        return sex;
+    public Gender getGender() {
+        return gender;
     }
 
-    public void setSex(Sex sex) {
-        this.sex = sex;
+    public void setGender(Gender gender) {
+        this.gender = gender;
     }
 
     public BodySide getDominantSide() {

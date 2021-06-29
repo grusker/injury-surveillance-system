@@ -2,12 +2,12 @@ package com.bb.injurysurveillancesystem.dto.input;
 
 import com.bb.injurysurveillancesystem.entity.Person;
 import com.bb.injurysurveillancesystem.entity.enums.BodySide;
-import com.bb.injurysurveillancesystem.entity.enums.Sex;
+import com.bb.injurysurveillancesystem.entity.enums.Gender;
 
 public class AthleteInputDto extends Person {
     private float height;
     private float weight;
-    private Sex sex;
+    private Gender gender;
     private BodySide dominantSide;
     private Long physioId;
 
@@ -27,12 +27,12 @@ public class AthleteInputDto extends Person {
         this.weight = weight;
     }
 
-    public Sex getSex() {
-        return sex;
+    public Gender getGender() {
+        return gender;
     }
 
-    public void setSex(Sex sex) {
-        this.sex = sex;
+    public void setGender(Gender gender) {
+        this.gender = gender;
     }
 
     public BodySide getDominantSide() {
