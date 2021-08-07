@@ -10,6 +10,7 @@ public class AthleteOutputDto extends Person {
     private float height;
     private float weight;
     private float bmi;
+    private float age;
     private Gender gender;
     private BodySide dominantSide;
     private PhysioEntity physioterapist;
@@ -44,6 +45,14 @@ public class AthleteOutputDto extends Person {
 
     public void setBmi(float bmi) {
         this.bmi = bmi;
+    }
+
+    public float getAge() {
+        return age;
+    }
+
+    public void setAge(float age) {
+        this.age = age;
     }
 
     public Gender getGender() {

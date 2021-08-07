@@ -19,6 +19,7 @@ public class AthleteEntity extends Person{
     private float weight;
     @Column(columnDefinition = "NUMBER(10,3)")
     private float bmi;
+    private int age;
     @Enumerated(EnumType.STRING)
     private Gender gender;
     @Enumerated(EnumType.STRING)
@@ -60,6 +61,14 @@ public class AthleteEntity extends Person{
         } else {
             this.bmi = 0;
         }
+    }
+
+    public int getAge() {
+        return age;
+    }
+
+    public void setAge(int age) {
+        this.age = age;
     }
 
     public Gender getGender() {

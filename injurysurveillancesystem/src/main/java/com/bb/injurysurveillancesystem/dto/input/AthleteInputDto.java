@@ -7,6 +7,7 @@ import com.bb.injurysurveillancesystem.entity.enums.Gender;
 public class AthleteInputDto extends Person {
     private float height;
     private float weight;
+    private int age;
     private Gender gender;
     private BodySide dominantSide;
     private Long physioId;
@@ -25,6 +26,14 @@ public class AthleteInputDto extends Person {
 
     public void setWeight(float weight) {
         this.weight = weight;
+    }
+
+    public int getAge() {
+        return age;
+    }
+
+    public void setAge(int age) {
+        this.age = age;
     }
 
     public Gender getGender() {
