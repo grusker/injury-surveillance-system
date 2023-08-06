@@ -1,30 +1,13 @@
-package com.bb.injurysurveillancesystem.entity;
+package com.bb.injurysurveillancesystem.dto.input;
 
 import com.bb.injurysurveillancesystem.entity.enums.SportBranch;
-import com.fasterxml.jackson.annotation.JsonIgnore;
 
-import javax.persistence.*;
-
-@Entity
-@Table(name = "sportInfo")
-public class SportInfoEntity {
-    @Id
-    @JsonIgnore
-    private Long id;
-    @OneToOne
-    @MapsId
-    @JoinColumn(name = "id")
-    private AthleteEntity athlete;
-    @Enumerated(EnumType.STRING)
+public class SportInfoInputDto {
     private SportBranch branch;
     private String team;
     private String position;
     private int sportAge;
     private float weeklyTrainingHours;
-
-    public AthleteEntity getAthlete() { return athlete; }
-
-    public void setAthlete(AthleteEntity athlete) { this.athlete = athlete; }
 
     public SportBranch getBranch() {
         return branch;
@@ -34,9 +17,13 @@ public class SportInfoEntity {
         this.branch = branch;
     }
 
-    public String getTeam() { return team; }
+    public String getTeam() {
+        return team;
+    }
 
-    public void setTeam(String team) { this.team = team; }
+    public void setTeam(String team) {
+        this.team = team;
+    }
 
     public String getPosition() {
         return position;
