@@ -19,7 +19,7 @@ public interface AthleteMapper {
     @Named("toAthleteWithPyhsio")
     default AthleteEntity toAthleteEntity(AthleteInputDto athleteInputDto, PhysioEntity physioEntity) {
         AthleteEntity athleteEntity = toAthleteEntity(athleteInputDto);
-        athleteEntity.setPhysioterapist(physioEntity);
+        athleteEntity.setPhysiotherapist(physioEntity);
         return athleteEntity;
     }
 

@@ -13,7 +13,7 @@ public class AthleteOutputDto extends Person {
     private float age;
     private Gender gender;
     private BodySide dominantSide;
-    private PhysioEntity physioterapist;
+    private PhysioEntity physiotherapist;
 
     public Long getId() {
         return id;
@@ -71,11 +71,11 @@ public class AthleteOutputDto extends Person {
         this.dominantSide = dominantSide;
     }
 
-    public PhysioEntity getPhysioterapist() {
-        return physioterapist;
+    public PhysioEntity getPhysiotherapist() {
+        return physiotherapist;
     }
 
-    public void setPhysioterapist(PhysioEntity physioterapist) {
-        this.physioterapist = physioterapist;
+    public void setPhysiotherapist(PhysioEntity physiotherapist) {
+        this.physiotherapist = physiotherapist;
     }
 }

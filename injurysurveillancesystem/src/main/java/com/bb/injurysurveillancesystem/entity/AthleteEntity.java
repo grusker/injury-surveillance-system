@@ -26,8 +26,7 @@ public class AthleteEntity extends Person{
     private BodySide dominantSide;
     @ManyToOne
     @JoinColumn(name = "physio_id", nullable = true)
-    private PhysioEntity physioterapist;
-
+    private PhysioEntity physiotherapist;
 
     public Long getId() {
         return id;
@@ -87,11 +86,11 @@ public class AthleteEntity extends Person{
         this.dominantSide = dominantSide;
     }
 
-    public PhysioEntity getPhysioterapist() {
-        return physioterapist;
+    public PhysioEntity getPhysiotherapist() {
+        return physiotherapist;
     }
 
-    public void setPhysioterapist(PhysioEntity physioterapist) {
-        this.physioterapist = physioterapist;
+    public void setPhysiotherapist(PhysioEntity physiotherapist) {
+        this.physiotherapist = physiotherapist;
     }
 }
