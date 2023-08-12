@@ -43,7 +43,7 @@ public class AthleteService {
         BodyInfoEntity bodyInfoEntity = AthleteMapper.INSTANCE.toBodyInfoEntity(inputDto);
         bodyInfoEntity.setAthlete(athleteEntity);
         bodyInfoRepo.save(bodyInfoEntity);
-        return AthleteMapper.INSTANCE.toAthleteOutputDto(athleteEntity);
+        return AthleteMapper.INSTANCE.toAthleteOutputDto(athleteEntity, sportInfoEntity, bodyInfoEntity);
     }
 
     public List<AthleteOutputDto> getAthletes() {
