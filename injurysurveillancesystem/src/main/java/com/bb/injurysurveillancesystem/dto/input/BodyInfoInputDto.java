@@ -6,8 +6,8 @@ public class BodyInfoInputDto {
     private float height;
     private float weight;
     private BodySide dominantSide;
-    private float lowerExtremityDominantSide;
-    private float upperExtremityDominantSide;
+    private BodySide lowerExtremityDominantSide;
+    private BodySide upperExtremityDominantSide;
     private float lowerExtremityLength;
     private float upperExtremityLength;
 
@@ -35,19 +35,19 @@ public class BodyInfoInputDto {
         this.dominantSide = dominantSide;
     }
 
-    public float getLowerExtremityDominantSide() {
+    public BodySide getLowerExtremityDominantSide() {
         return lowerExtremityDominantSide;
     }
 
-    public void setLowerExtremityDominantSide(float lowerExtremityDominantSide) {
+    public void setLowerExtremityDominantSide(BodySide lowerExtremityDominantSide) {
         this.lowerExtremityDominantSide = lowerExtremityDominantSide;
     }
 
-    public float getUpperExtremityDominantSide() {
+    public BodySide getUpperExtremityDominantSide() {
         return upperExtremityDominantSide;
     }
 
-    public void setUpperExtremityDominantSide(float upperExtremityDominantSide) {
+    public void setUpperExtremityDominantSide(BodySide upperExtremityDominantSide) {
         this.upperExtremityDominantSide = upperExtremityDominantSide;
     }
 
