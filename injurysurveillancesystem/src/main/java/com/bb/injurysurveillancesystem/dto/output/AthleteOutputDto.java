@@ -1,19 +1,15 @@
 package com.bb.injurysurveillancesystem.dto.output;
 
 import com.bb.injurysurveillancesystem.entity.Person;
-import com.bb.injurysurveillancesystem.entity.PhysioEntity;
-import com.bb.injurysurveillancesystem.entity.enums.BodySide;
 import com.bb.injurysurveillancesystem.entity.enums.Gender;
 
 public class AthleteOutputDto extends Person {
     private Long id;
-    private float height;
-    private float weight;
-    private float bmi;
     private float age;
     private Gender gender;
-    private BodySide dominantSide;
-    private PhysioEntity physiotherapist;
+    private PhysioOutputDto physiotherapist;
+    private BodyInfoOutputDto bodyInfo;
+    private SportInfoOutputDto sportInfo;
 
     public Long getId() {
         return id;
@@ -21,30 +17,6 @@ public class AthleteOutputDto extends Person {
 
     public void setId(Long id) {
         this.id = id;
-    }
-
-    public float getHeight() {
-        return height;
-    }
-
-    public void setHeight(float height) {
-        this.height = height;
-    }
-
-    public float getWeight() {
-        return weight;
-    }
-
-    public void setWeight(float weight) {
-        this.weight = weight;
-    }
-
-    public float getBmi() {
-        return bmi;
-    }
-
-    public void setBmi(float bmi) {
-        this.bmi = bmi;
     }
 
     public float getAge() {
@@ -63,19 +35,27 @@ public class AthleteOutputDto extends Person {
         this.gender = gender;
     }
 
-    public BodySide getDominantSide() {
-        return dominantSide;
-    }
-
-    public void setDominantSide(BodySide dominantSide) {
-        this.dominantSide = dominantSide;
-    }
-
-    public PhysioEntity getPhysiotherapist() {
+    public PhysioOutputDto getPhysiotherapist() {
         return physiotherapist;
     }
 
-    public void setPhysiotherapist(PhysioEntity physiotherapist) {
+    public void setPhysiotherapist(PhysioOutputDto physiotherapist) {
         this.physiotherapist = physiotherapist;
+    }
+
+    public BodyInfoOutputDto getBodyInfo() {
+        return bodyInfo;
+    }
+
+    public void setBodyInfo(BodyInfoOutputDto bodyInfo) {
+        this.bodyInfo = bodyInfo;
+    }
+
+    public SportInfoOutputDto getSportInfo() {
+        return sportInfo;
+    }
+
+    public void setSportInfo(SportInfoOutputDto sportInfo) {
+        this.sportInfo = sportInfo;
     }
 }

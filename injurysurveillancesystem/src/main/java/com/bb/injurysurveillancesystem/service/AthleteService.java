@@ -48,11 +48,17 @@ public class AthleteService {
 
     public List<AthleteOutputDto> getAthletes() {
         List<AthleteEntity> athleteEntities = athleteRepo.findAll();
-        return AthleteMapper.INSTANCE.toAthleteOutputDtoList(athleteEntities);
+        List<SportInfoEntity> sportInfoEntities = sportInfoRepo.findAll();
+        List<BodyInfoEntity> bodyInfoEntities = bodyInfoRepo.findAll();
+
+        return AthleteMapper.INSTANCE.toAthleteOutputDtoList(athleteEntities, sportInfoEntities, bodyInfoEntities);
     }
 
     public AthleteOutputDto getAthleteById(Long id) {
         AthleteEntity athleteEntity = athleteRepo.getById(id);
-        return AthleteMapper.INSTANCE.toAthleteOutputDto(athleteEntity);
+        SportInfoEntity sportInfoEntity = sportInfoRepo.getById(id);
+        BodyInfoEntity bodyInfoEntity = bodyInfoRepo.getById(id);
+
+        return AthleteMapper.INSTANCE.toAthleteOutputDto(athleteEntity, sportInfoEntity, bodyInfoEntity);
     }
 }
