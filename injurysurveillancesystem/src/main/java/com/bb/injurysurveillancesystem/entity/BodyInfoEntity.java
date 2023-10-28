@@ -15,11 +15,11 @@ public class BodyInfoEntity {
     @MapsId
     @JoinColumn(name = "id")
     private AthleteEntity athlete;
-    @Column(columnDefinition = "NUMBER(4,1)")
+    @Column(columnDefinition = "NUMERIC(4,1)")
     private float height;
-    @Column(columnDefinition = "NUMBER(4,1)")
+    @Column(columnDefinition = "NUMERIC(4,1)")
     private float weight;
-    @Column(columnDefinition = "NUMBER(10,3)")
+    @Column(columnDefinition = "NUMERIC(10,3)")
     private float bmi;
     @Enumerated(EnumType.STRING)
     private BodySide dominantSide;
