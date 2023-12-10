@@ -32,4 +32,9 @@ public class PhysioController {
     public PhysioOutputDto getPhysio(@PathVariable Long id) {
         return physioService.getPhysioById(id);
     }
+
+    @PutMapping("/{id}")
+    public PhysioOutputDto updatePhysio(@PathVariable Long id, @RequestBody PhysioInputDto updatedPhysio) {
+        return physioService.updatePhysio(id, updatedPhysio);
+    }
 }

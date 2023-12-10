@@ -30,4 +30,11 @@ public class PhysioService {
         PhysioEntity physioEntity = physioRepo.getById(id);
         return PhysioMapper.INSTANCE.toPhysioOutputDto(physioEntity);
     }
+
+    public PhysioOutputDto updatePhysio(Long id, PhysioInputDto updatedPhysio) {
+        PhysioEntity entity = PhysioMapper.INSTANCE.toPhysioEntity(updatedPhysio);
+        entity.setId(id);
+        entity = physioRepo.save(entity);
+        return PhysioMapper.INSTANCE.toPhysioOutputDto(entity);
+    }
 }
