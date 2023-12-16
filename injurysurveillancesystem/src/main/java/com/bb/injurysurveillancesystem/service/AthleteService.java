@@ -61,4 +61,22 @@ public class AthleteService {
 
         return AthleteMapper.INSTANCE.toAthleteOutputDto(athleteEntity, sportInfoEntity, bodyInfoEntity);
     }
+
+    public AthleteOutputDto updateAthlete(Long id, AthleteInputDto inputDto) {
+        PhysioOutputDto physioOutputDto = physioService.getPhysioById(inputDto.getPhysioId());
+        PhysioEntity physioEntity = PhysioMapper.INSTANCE.toPhysioEntity(physioOutputDto);
+        AthleteEntity athleteEntity = AthleteMapper.INSTANCE.toAthleteEntity(inputDto, physioEntity);
+        SportInfoEntity sportInfoEntity = AthleteMapper.INSTANCE.toSportInfoEntity(inputDto);
+        BodyInfoEntity bodyInfoEntity = AthleteMapper.INSTANCE.toBodyInfoEntity(inputDto);
+
+        athleteEntity.setId(id);
+        sportInfoEntity.setId(id);
+        bodyInfoEntity.setId(id);
+
+        athleteRepo.save(athleteEntity);
+        sportInfoRepo.save(sportInfoEntity);
+        bodyInfoRepo.save(bodyInfoEntity);
+
+        return AthleteMapper.INSTANCE.toAthleteOutputDto(athleteEntity, sportInfoEntity, bodyInfoEntity);
+    }
 }

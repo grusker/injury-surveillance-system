@@ -30,4 +30,9 @@ public class AthleteController {
     public AthleteOutputDto getAthlete(@PathVariable Long id) {
         return athleteService.getAthleteById(id);
     }
+
+    @PutMapping("/{id}")
+    public AthleteOutputDto updateAthlete(@PathVariable Long id, @RequestBody AthleteInputDto inputDto) {
+        return athleteService.updateAthlete(id, inputDto);
+    }
 }
