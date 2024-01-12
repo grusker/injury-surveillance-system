@@ -1,4 +1,4 @@
-package com.bb.injurysurveillancesystem.entity.enums;
+package com.bb.injurysurveillancesystem.entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 

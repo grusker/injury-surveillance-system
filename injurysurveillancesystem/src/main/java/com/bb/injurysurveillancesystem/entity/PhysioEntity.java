@@ -1,6 +1,5 @@
 package com.bb.injurysurveillancesystem.entity;
 
-import com.bb.injurysurveillancesystem.entity.enums.TeamEntity;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import javax.persistence.*;
