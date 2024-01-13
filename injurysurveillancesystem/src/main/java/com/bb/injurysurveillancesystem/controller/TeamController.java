@@ -22,6 +22,7 @@ public class TeamController {
         return teamService.createTeam(team);
     }
 
+    @GetMapping
     public List<TeamOutputDto> getTeams() {
         return teamService.getTeams();
     }
