@@ -15,9 +15,11 @@ public class SportInfoEntity {
     @MapsId
     @JoinColumn(name = "id")
     private AthleteEntity athlete;
+    @ManyToOne
+    @JoinColumn(name = "team_id", nullable = true)
+    private TeamEntity team;
     @Enumerated(EnumType.STRING)
     private SportBranch branch;
-    private String team;
     private String position;
     private int sportAge;
     private float weeklyTrainingHours;
@@ -30,6 +32,14 @@ public class SportInfoEntity {
 
     public void setAthlete(AthleteEntity athlete) { this.athlete = athlete; }
 
+    public TeamEntity getTeam() {
+        return team;
+    }
+
+    public void setTeam(TeamEntity team) {
+        this.team = team;
+    }
+
     public SportBranch getBranch() {
         return branch;
     }
@@ -37,10 +47,6 @@ public class SportInfoEntity {
     public void setBranch(SportBranch branch) {
         this.branch = branch;
     }
-
-    public String getTeam() { return team; }
-
-    public void setTeam(String team) { this.team = team; }
 
     public String getPosition() {
         return position;

@@ -9,15 +9,12 @@ import javax.persistence.*;
 @Table(name = "athlete")
 public class AthleteEntity extends Person{
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @JsonIgnore
     private Long id;
     private int age;
     @Enumerated(EnumType.STRING)
     private Gender gender;
-    @ManyToOne
-    @JoinColumn(name = "physio_id", nullable = true)
-    private PhysioEntity physiotherapist;
 
     public Long getId() {
         return id;
@@ -39,13 +36,5 @@ public class AthleteEntity extends Person{
 
     public void setGender(Gender gender) {
         this.gender = gender;
-    }
-
-    public PhysioEntity getPhysiotherapist() {
-        return physiotherapist;
-    }
-
-    public void setPhysiotherapist(PhysioEntity physiotherapist) {
-        this.physiotherapist = physiotherapist;
     }
 }
