@@ -8,7 +8,7 @@ import javax.persistence.*;
 @Table(name = "physio")
 public class PhysioEntity extends Person{
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @JsonIgnore
     private Long id;
 
