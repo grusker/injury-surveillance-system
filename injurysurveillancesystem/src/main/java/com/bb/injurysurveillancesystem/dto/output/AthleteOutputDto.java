@@ -7,7 +7,6 @@ public class AthleteOutputDto extends Person {
     private Long id;
     private float age;
     private Gender gender;
-    private PhysioOutputDto physiotherapist;
     private BodyInfoOutputDto bodyInfo;
     private SportInfoOutputDto sportInfo;
 
@@ -33,14 +32,6 @@ public class AthleteOutputDto extends Person {
 
     public void setGender(Gender gender) {
         this.gender = gender;
-    }
-
-    public PhysioOutputDto getPhysiotherapist() {
-        return physiotherapist;
-    }
-
-    public void setPhysiotherapist(PhysioOutputDto physiotherapist) {
-        this.physiotherapist = physiotherapist;
     }
 
     public BodyInfoOutputDto getBodyInfo() {

@@ -6,10 +6,7 @@ import com.bb.injurysurveillancesystem.dto.input.SportInfoInputDto;
 import com.bb.injurysurveillancesystem.dto.output.AthleteOutputDto;
 import com.bb.injurysurveillancesystem.dto.output.BodyInfoOutputDto;
 import com.bb.injurysurveillancesystem.dto.output.SportInfoOutputDto;
-import com.bb.injurysurveillancesystem.entity.AthleteEntity;
-import com.bb.injurysurveillancesystem.entity.BodyInfoEntity;
-import com.bb.injurysurveillancesystem.entity.PhysioEntity;
-import com.bb.injurysurveillancesystem.entity.SportInfoEntity;
+import com.bb.injurysurveillancesystem.entity.*;
 import org.mapstruct.Mapper;
 import org.mapstruct.Named;
 import org.mapstruct.factory.Mappers;
@@ -28,16 +25,11 @@ public interface AthleteMapper {
     SportInfoOutputDto toSportInfoOutputDto(SportInfoEntity sportInfoEntity);
     BodyInfoOutputDto toBodyInfoOutputDto(BodyInfoEntity bodyInfoEntity);
 
-    @Named("toAthleteWithPyhsio")
-    default AthleteEntity toAthleteEntity(AthleteInputDto athleteInputDto, PhysioEntity physioEntity) {
-        AthleteEntity athleteEntity = toAthleteEntity(athleteInputDto);
-        athleteEntity.setPhysiotherapist(physioEntity);
-        return athleteEntity;
-    }
-
-    @Named("toSportInfoFromAthlete")
-    default SportInfoEntity toSportInfoEntity(AthleteInputDto athleteInputDto) {
-        return toSportInfoEntity(athleteInputDto.getSportInfo());
+    @Named("toSportInfoWithTeamFromAthlete")
+    default SportInfoEntity toSportInfoEntity(AthleteInputDto athleteInputDto, TeamEntity teamEntity) {
+        SportInfoEntity sportInfoEntity = toSportInfoEntity(athleteInputDto.getSportInfo());
+        sportInfoEntity.setTeam(teamEntity);
+        return sportInfoEntity;
     }
 
     @Named("toBodyInfoFromAthlete")

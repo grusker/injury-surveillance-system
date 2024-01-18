@@ -3,8 +3,8 @@ package com.bb.injurysurveillancesystem.dto.output;
 import com.bb.injurysurveillancesystem.entity.enums.SportBranch;
 
 public class SportInfoOutputDto {
+    private TeamOutputDto team;
     private SportBranch branch;
-    private String team;
     private String position;
     private int sportAge;
     private float weeklyTrainingHours;
@@ -17,11 +17,11 @@ public class SportInfoOutputDto {
         this.branch = branch;
     }
 
-    public String getTeam() {
+    public TeamOutputDto getTeam() {
         return team;
     }
 
-    public void setTeam(String team) {
+    public void setTeam(TeamOutputDto team) {
         this.team = team;
     }
 

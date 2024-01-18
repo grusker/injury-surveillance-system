@@ -14,6 +14,8 @@ public interface TeamMapper {
 
     TeamEntity toTeamEntity(TeamInputDto inputDto);
 
+    TeamEntity toTeamEntity(TeamOutputDto outputDto);
+
     TeamOutputDto toTeamOutputDtp(TeamEntity entity);
 
     List<TeamOutputDto> toTeamOutputDtos(List<TeamEntity> entities);

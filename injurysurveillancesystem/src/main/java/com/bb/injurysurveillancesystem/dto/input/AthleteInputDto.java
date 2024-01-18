@@ -6,7 +6,6 @@ import com.bb.injurysurveillancesystem.entity.enums.Gender;
 public class AthleteInputDto extends Person {
     private int age;
     private Gender gender;
-    private Long physioId;
     private BodyInfoInputDto bodyInfo;
     private SportInfoInputDto sportInfo;
 
@@ -24,14 +23,6 @@ public class AthleteInputDto extends Person {
 
     public void setGender(Gender gender) {
         this.gender = gender;
-    }
-
-    public Long getPhysioId() {
-        return physioId;
-    }
-
-    public void setPhysioId(Long physioId) {
-        this.physioId = physioId;
     }
 
     public BodyInfoInputDto getBodyInfo() {

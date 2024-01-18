@@ -2,13 +2,10 @@ package com.bb.injurysurveillancesystem.service;
 
 import com.bb.injurysurveillancesystem.dto.input.AthleteInputDto;
 import com.bb.injurysurveillancesystem.dto.output.AthleteOutputDto;
-import com.bb.injurysurveillancesystem.dto.output.PhysioOutputDto;
-import com.bb.injurysurveillancesystem.entity.AthleteEntity;
-import com.bb.injurysurveillancesystem.entity.BodyInfoEntity;
-import com.bb.injurysurveillancesystem.entity.PhysioEntity;
-import com.bb.injurysurveillancesystem.entity.SportInfoEntity;
+import com.bb.injurysurveillancesystem.dto.output.TeamOutputDto;
+import com.bb.injurysurveillancesystem.entity.*;
 import com.bb.injurysurveillancesystem.mapper.AthleteMapper;
-import com.bb.injurysurveillancesystem.mapper.PhysioMapper;
+import com.bb.injurysurveillancesystem.mapper.TeamMapper;
 import com.bb.injurysurveillancesystem.repository.AthleteRepository;
 import com.bb.injurysurveillancesystem.repository.BodyInfoRepository;
 import com.bb.injurysurveillancesystem.repository.SportInfoRepository;
@@ -27,16 +24,16 @@ public class AthleteService {
     @Autowired
     private BodyInfoRepository bodyInfoRepo;
     @Autowired
-    private PhysioService physioService;
+    private TeamService teamService;
 
     @Transactional
     public AthleteOutputDto createAthlete(AthleteInputDto inputDto) {
-        PhysioOutputDto physioOutputDto = physioService.getPhysioById(inputDto.getPhysioId());
-        PhysioEntity physioEntity = PhysioMapper.INSTANCE.toPhysioEntity(physioOutputDto);
-        AthleteEntity athleteEntity = AthleteMapper.INSTANCE.toAthleteEntity(inputDto, physioEntity);
+        AthleteEntity athleteEntity = AthleteMapper.INSTANCE.toAthleteEntity(inputDto);
         athleteEntity = athleteRepo.save(athleteEntity);
 
-        SportInfoEntity sportInfoEntity = AthleteMapper.INSTANCE.toSportInfoEntity(inputDto);
+        TeamOutputDto teamOutputDto = teamService.getTeamById(inputDto.getSportInfo().getTeamId());
+        TeamEntity teamEntity = TeamMapper.INSTANCE.toTeamEntity(teamOutputDto);
+        SportInfoEntity sportInfoEntity = AthleteMapper.INSTANCE.toSportInfoEntity(inputDto, teamEntity);
         sportInfoEntity.setAthlete(athleteEntity);
         sportInfoRepo.save(sportInfoEntity);
 
@@ -63,10 +60,10 @@ public class AthleteService {
     }
 
     public AthleteOutputDto updateAthlete(Long id, AthleteInputDto inputDto) {
-        PhysioOutputDto physioOutputDto = physioService.getPhysioById(inputDto.getPhysioId());
-        PhysioEntity physioEntity = PhysioMapper.INSTANCE.toPhysioEntity(physioOutputDto);
-        AthleteEntity athleteEntity = AthleteMapper.INSTANCE.toAthleteEntity(inputDto, physioEntity);
-        SportInfoEntity sportInfoEntity = AthleteMapper.INSTANCE.toSportInfoEntity(inputDto);
+        TeamOutputDto teamOutputDto = teamService.getTeamById(inputDto.getSportInfo().getTeamId());
+        TeamEntity teamEntity = TeamMapper.INSTANCE.toTeamEntity(teamOutputDto);
+        AthleteEntity athleteEntity = AthleteMapper.INSTANCE.toAthleteEntity(inputDto);
+        SportInfoEntity sportInfoEntity = AthleteMapper.INSTANCE.toSportInfoEntity(inputDto, teamEntity);
         BodyInfoEntity bodyInfoEntity = AthleteMapper.INSTANCE.toBodyInfoEntity(inputDto);
 
         athleteEntity.setId(id);
