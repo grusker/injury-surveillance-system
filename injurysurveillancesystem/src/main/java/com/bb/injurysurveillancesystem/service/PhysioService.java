@@ -22,12 +22,9 @@ public class PhysioService {
     private TeamService teamService;
 
     public PhysioOutputDto createPhysio(PhysioInputDto physioInputDto) {
-        PhysioEntity entity = PhysioMapper.INSTANCE.toPhysioEntity(physioInputDto);
-
         TeamOutputDto teamOutputDto = teamService.getTeamById(physioInputDto.getTeamId());
         TeamEntity teamEntity = TeamMapper.INSTANCE.toTeamEntity(teamOutputDto);
-
-        entity.setTeam(teamEntity);
+        PhysioEntity entity = PhysioMapper.INSTANCE.toPhysioEntity(physioInputDto, teamEntity);
         entity = physioRepo.save(entity);
         return PhysioMapper.INSTANCE.toPhysioOutputDto(entity);
     }
@@ -43,7 +40,9 @@ public class PhysioService {
     }
 
     public PhysioOutputDto updatePhysio(Long id, PhysioInputDto updatedPhysio) {
-        PhysioEntity entity = PhysioMapper.INSTANCE.toPhysioEntity(updatedPhysio);
+        TeamOutputDto teamOutputDto = teamService.getTeamById(updatedPhysio.getTeamId());
+        TeamEntity teamEntity = TeamMapper.INSTANCE.toTeamEntity(teamOutputDto);
+        PhysioEntity entity = PhysioMapper.INSTANCE.toPhysioEntity(updatedPhysio, teamEntity);
         entity.setId(id);
         entity = physioRepo.save(entity);
         return PhysioMapper.INSTANCE.toPhysioOutputDto(entity);
